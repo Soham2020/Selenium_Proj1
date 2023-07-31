@@ -15,6 +15,38 @@ import org.openqa.selenium.edge.EdgeDriver;
 public class Subjects {
 	
 	private static String url = "https://openlibrary.org/";
+
+	public static void categories(WebDriver driver) {
+		driver.navigate().to(url);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		String xpath = "/html/body/div[4]/div[2]/div[11]/div[2]/div/div/div/div[";
+		WebElement w;
+		for(int i=1; i<=5; i++) {
+			String temp = xpath + i + "]";
+			w = driver.findElement(By.xpath(temp));
+			System.out.println(w.getText());
+		}
+
+		
+		WebElement nextBtn = driver.findElement(By.xpath("//div[@class='carousel-section'][11]/div[@class='carousel-container']/div[1]/button[2]"));
+		nextBtn.click();
+		
+		for(int i=6; i<=10; i++) {
+			String temp = xpath + i + "]";
+			w = driver.findElement(By.xpath(temp));
+			System.out.println(w.getText());			
+		}
+
+		WebElement nextBtn1 = driver.findElement(By.xpath("//div[@class='carousel-section'][11]/div[@class='carousel-container']/div[1]/button[2]"));
+		nextBtn1.click();
+		for(int i=11; i<=15; i++) {
+			String temp = xpath + i + "]";
+			w = driver.findElement(By.xpath(temp));
+			System.out.println(w.getText());
+		}
+	}
 	
 	public static Boolean checkCountBooks (WebDriver driver) {
 		driver.navigate().to(url);
@@ -78,7 +110,8 @@ public class Subjects {
 		case 1: {
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\2282058\\Downloads\\eclipse-java-2023-03-R-win32-x86_64 (1)\\eclipse\\MiniProject\\driver\\chromedriver.exe");
 			driver = new ChromeDriver();
-			
+
+			categories(driver);
 			Boolean result = checkCountBooks(driver);
 			System.out.println(result);			
 //			Closing the driver
@@ -90,6 +123,7 @@ public class Subjects {
 			driver = new EdgeDriver();
 			driver.navigate().to(url);
 
+			categories(driver);
 			Boolean result = checkCountBooks(driver);
 			System.out.println(result);			
 //			Closing the driver
