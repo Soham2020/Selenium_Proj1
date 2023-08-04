@@ -30,10 +30,10 @@ public class CountTamilBooks {
 		 * There is no class, id, linkText and partialText
 		 * We can also not use by tag name because there are many li tags.
 		 */
-		WebElement browse1 = driver.findElement(By.xpath("//*[@id=\"header-bar\"]/ul[1]/li[2]/div/details/div/ul/li[1]/a"));
+		WebElement clkSubject = driver.findElement(By.xpath("//div[@class='browse-component header-dropdown']/details/div/ul/li[1]/a[1]"));
 //		Highlight the component
-		js.executeScript("arguments[0].style.border='2px solid red'", browse1);
-		browse1.click();
+		js.executeScript("arguments[0].style.border='2px solid red'", clkSubject);
+		clkSubject.click();
 
 		
 		// Learn about WebElement and JavaScriptExecutor
