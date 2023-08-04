@@ -37,7 +37,8 @@ public class PrintCategories {
 			TakeScreenShot.takeScreenShot(driver);
 			
 			// Clicking the side arrow button
-			WebElement nextBtn = driver.findElement(By.xpath("//div[@class='carousel-section'][11]/div[@class='carousel-container']/div[1]/button[2]"));
+			WebElement nextBtn = driver.findElement(By.cssSelector("#categories_carousel > button.slick-next.slick-arrow"));
+			// WebElement nextBtn = driver.findElement(By.xpath("//div[@class='carousel-section'][11]/div[@class='carousel-container']/div[1]/button[2]"));
 			js.executeScript("arguments[0].style.border='2px solid red'", nextBtn);
 			nextBtn.click();
 			
@@ -51,9 +52,8 @@ public class PrintCategories {
 			TakeScreenShot.takeScreenShot(driver);
 				
 			// Clicking the side arrow button
-			WebElement nextBtn1 = driver.findElement(By.xpath("//div[@class='carousel-section'][11]/div[@class='carousel-container']/div[1]/button[2]"));
-			js.executeScript("arguments[0].style.border='2px solid red'", nextBtn1);
-			nextBtn1.click();
+			js.executeScript("arguments[0].style.border='2px solid red'", nextBtn);
+			nextBtn.click();
 			
 			for(int i=11; i<15; i++) {
 				w = driver.findElement(By.cssSelector("#slick-slide10" + i));
